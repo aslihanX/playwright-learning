@@ -82,4 +82,16 @@ test.describe("Form elements", async()=>{
 
         })
 
+        test("Multi-select dropdowns", async({page})=>{
+
+            const multiSelect=page.locator("#colors");
+
+            //value-text-index olarak giriş yapabiliriz array içine.
+            await multiSelect.selectOption(["Red","Blue","Green"]);
+
+            await expect(multiSelect).toHaveValues(["red","blue","green"]);
+
+
+        })
+
 })
